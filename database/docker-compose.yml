@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  mysqlservice:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: '${HOMEPAGE_DB_ROOT_PASSWORD}'
+      MYSQL_DATABASE: '${HOMEPAGE_DB_NAME}'
+      MYSQL_USER: '${HOMEPAGE_DB_USER}'
+      MYSQL_PASSWORD: '${HOMEPAGE_DB_USER_PASSWORD}'
+    ports:
+      - 3307:3306

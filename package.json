@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "database:up": "cd ./database/ && npm run dockercompose:up",
+    "database:down": "cd ./database/ && npm run dockercompose:down",
+    "database:status": "cd ./database && npm run dockercompose:ps",
+    "database:populate": "cd ./database/ && npm run database:populate",
+    "backend:start": "cd ./backend/ && set APP_ENV=development && go run .",
+    "frontend:start": "cd ./frontend/ && npm run start",
+    "frontend:build": "cd ./frontend/ && npm run build"
+  }
+}

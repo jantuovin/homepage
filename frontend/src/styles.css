@@ -1,0 +1,246 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  border: 0;
+}
+
+html {
+  font-size: 3px;
+}
+
+@media screen and (min-width: 500px) {
+  html {
+    font-size: 6px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.tv-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tv {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: #80583f;
+  gap: 1rem;
+}
+
+.bezel {
+  width: 60vw;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  padding: 1.5rem;
+  background-color: #A9A9A9;
+}
+
+.monitor {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border: 0.125rem solid black;
+  border-radius: 3rem;
+  background: linear-gradient(#666, #333);
+  box-shadow: 0px 0px 1px 0.75rem #888;
+}
+
+.picture, .picture iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 3rem;
+  background: linear-gradient(to right, #000 0%, #000 100%);
+}
+
+.dead-picture {
+  background: linear-gradient(#666, #333);
+}
+
+.test-picture {
+  background: linear-gradient(
+    to right, 
+    #fff 0%, #fff 14.3%, 
+    #ffff01 14.3%, #ffff01 28.6%, 
+    #00fdfe 28.6%, #00fdfe 42.9%, 
+    #00ff01 42.9%, #00ff01 57.2%, 
+    #fe00f9 57.2%, #fe00f9 71.5%,
+    #fe0000 71.5%, #fe0000 85.8%,
+    #0000fe 85.8%
+  ) !important;
+}
+
+.credits {
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem;
+  gap: 20rem;
+  align-items: center;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-align: center;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 450px) {
+  .credits {
+    gap: 5rem;
+  }
+}
+
+.credits section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.credits h1 {
+  font-size: 1.25rem;
+}
+
+.credits h1 span {
+  font-weight: 500;
+  font-size: 0.75rem;
+}
+
+.credits h2 {
+  font-size: 0.825rem;
+  margin-bottom: 1.5rem;
+}
+
+.credits dl {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.credits dl div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.credits dt, .credits dd {
+  font-size: 0.725rem;
+  text-align: right;
+}
+
+.credits dd {
+  font-weight: 700;
+  text-align: left;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 25%;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  padding-top: 2rem;
+  gap: 0.1rem;
+  background-color: #836044;
+}
+
+.channel-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  aspect-ratio: 1/1;
+  border: 1px solid black;
+  border-radius: 10000px;
+  background-color: #333;
+  appearance: none;
+  cursor: pointer;
+  --rotation-angle: 0deg;
+  transform: rotate(var(--rotation-angle));
+}
+
+.channel-button-dial {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  height: 15%;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  padding-left: 0.1rem;
+  background-color: gray;
+}
+
+.channel-button-dial-pointer {
+  width: 20%;
+  height: 40%;
+  border-radius: 0.25rem;
+  background-color: black;
+}
+
+.decoration-small {
+  width: 40%;
+  aspect-ratio: 7/3;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  background-color: #333;
+}
+
+.decoration-big {
+  height: 40%;
+  aspect-ratio: 3/4;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  background-color: #333;
+}
+
+.stand {
+  width: 90%;
+  height: 2rem;
+  border-radius: 0 0 0.25rem 0.25rem;
+  background-color: #333;
+}

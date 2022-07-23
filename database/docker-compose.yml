@@ -10,4 +10,4 @@ services:
       MYSQL_USER: '${HOMEPAGE_DB_USER}'
       MYSQL_PASSWORD: '${HOMEPAGE_DB_USER_PASSWORD}'
     ports:
-      - 3307:3306
+      - 127.0.0.1:3307:3306

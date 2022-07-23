@@ -31,6 +31,11 @@ func GetPersonById(c *fiber.Ctx) error {
 	if err := c.JSON(person); err != nil {
 		return c.Status(fiber.StatusInternalServerError).SendString("Internal server error")
 	}
+
+	if person.ID != uint(id) {
+		return c.Status(fiber.StatusNotFound).SendString("Not found")
+	}
+
 	c.Set("Content-Type", "application/json")
 	return c.JSON(person)
 }

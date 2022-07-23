@@ -4,7 +4,7 @@
 
 ## Stack
 
-- Ubuntu server 20.04.1 LTS
+- Ubuntu server
 - Go Fiber API
 - MySQL database on Docker
 - Caddy server as reverse proxy

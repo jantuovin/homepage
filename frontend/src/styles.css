@@ -8,13 +8,7 @@
 }
 
 html {
-  font-size: 3px;
-}
-
-@media screen and (min-width: 500px) {
-  html {
-    font-size: 6px;
-  }
+  font-size: 6px;
 }
 
 @media screen and (min-width: 700px) {

@@ -78,7 +78,8 @@ export const App = () => {
             {creditsData && (
               <Credits
                 name={creditsData.name}
-                email={creditsData.email}
+                github={creditsData.github}
+                linkedin={creditsData.linkedin}
                 experiences={creditsData.experiences}
               />
             )}

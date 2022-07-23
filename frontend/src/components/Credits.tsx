@@ -4,7 +4,8 @@ import useAnimationFrame from "../hooks/useAnimationFrame";
 
 export interface CreditsProps {
   name: string;
-  email: string;
+  github: string;
+  linkedin: string;
   experiences: {
     title: string;
     description: string;
@@ -12,7 +13,12 @@ export interface CreditsProps {
   }[];
 }
 
-const Credits: React.FC<CreditsProps> = ({ name, email, experiences }) => {
+const Credits: React.FC<CreditsProps> = ({
+  name,
+  github,
+  linkedin,
+  experiences,
+}) => {
   const creditsRef = useRef<HTMLDivElement>(null);
 
   const employmentHistory = useMemo(() => {
@@ -76,8 +82,10 @@ const Credits: React.FC<CreditsProps> = ({ name, email, experiences }) => {
 
         <dl>
           <div>
-            <dt>email</dt>
-            <dd>{email}</dd>
+            <dt>GitHub</dt>
+            <dd>{github}</dd>
+            <dt>LinkedIn</dt>
+            <dd>{linkedin}</dd>
           </div>
         </dl>
       </section>

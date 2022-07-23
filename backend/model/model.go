@@ -10,7 +10,8 @@ type Person struct {
 	gorm.Model
 	Name        string       `json:"name"`
 	Title       string       `json:"title"`
-	Email       string       `json:"email"`
+	Github      string       `json:"github"`
+	Linkedin    string       `json:"linkedin"`
 	Skills      []Skill      `json:"skills"`
 	Experiences []Experience `json:"experiences"`
 }

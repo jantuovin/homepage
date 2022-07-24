@@ -8,12 +8,13 @@ import (
 
 type Person struct {
 	gorm.Model
-	Name        string       `json:"name"`
-	Title       string       `json:"title"`
-	Github      string       `json:"github"`
-	Linkedin    string       `json:"linkedin"`
-	Skills      []Skill      `json:"skills"`
-	Experiences []Experience `json:"experiences"`
+	Name            string           `json:"name"`
+	Title           string           `json:"title"`
+	Github          string           `json:"github"`
+	Linkedin        string           `json:"linkedin"`
+	Skills          []Skill          `json:"skills"`
+	Experiences     []Experience     `json:"experiences"`
+	FavouriteVideos []FavouriteVideo `json:"favouriteVideos"`
 }
 
 type Skill struct {
@@ -35,11 +36,19 @@ type Experience struct {
 	PersonId    uint   `json:"person_id"`
 }
 
+type FavouriteVideo struct {
+	gorm.Model
+	Title    string `json:"title"`
+	Src      string `json:"src"`
+	PersonId uint   `json:"person_id"`
+}
+
 func init() {
 	db := database.GetDB()
 	db.AutoMigrate(&Person{})
 	db.AutoMigrate(&Skill{})
 	db.AutoMigrate(&Experience{})
+	db.AutoMigrate(&FavouriteVideo{})
 }
 
 func CreatePerson(person *Person) *Person {
@@ -54,5 +63,6 @@ func GetPerson(id int) *Person {
 	db.Where("ID = ?", id).Find(&person)
 	db.Model(&person).Association("Skills").Find(&person.Skills)
 	db.Model(&person).Association("Experiences").Find(&person.Experiences)
+	db.Model(&person).Association("FavouriteVideos").Find(&person.FavouriteVideos)
 	return &person
 }

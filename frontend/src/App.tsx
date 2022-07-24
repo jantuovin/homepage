@@ -5,21 +5,29 @@ import Credits, { CreditsProps } from "./components/Credits";
 import YouTubeIframe from "./components/YoutubeIframe";
 import useFetch from "./hooks/useFetch";
 
+interface PersonApiData extends CreditsProps {
+  favouriteVideos: {
+    title: string;
+    src: string;
+  }[];
+}
+
 export const App = () => {
+  const MAX_CHANNELS = 8;
   const [channel, setChannel] = useState(0);
 
-  const { doFetch: fetchCredits, data: creditsData } =
-    useFetch<CreditsProps>("/api/person/1");
+  const { doFetch: fetchPerson, data: personApiData } =
+    useFetch<PersonApiData>("/api/person/1");
 
   useEffect(() => {
-    fetchCredits();
+    fetchPerson();
   }, []);
 
   const handleChannelButtonClick = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     const newChannel = channel + 1;
-    const rotationDegrees = 45 * newChannel;
+    const rotationDegrees = (360 / MAX_CHANNELS) * newChannel;
     const channelButton: HTMLButtonElement = event.currentTarget;
     channelButton.style.setProperty(
       "--rotation-angle",
@@ -34,59 +42,26 @@ export const App = () => {
   };
 
   const getPicture = (channel: number) => {
-    switch (channel) {
-      case 0:
-        return <DefaultPicture className="dead-picture" />;
-      case 1:
-        return (
-          <YouTubeIframe
-            src="https://www.youtube-nocookie.com/embed/VbEv8C9Cff0?start=63"
-            title="Prince Purle Rain live show"
-          />
-        );
-      case 2:
-        return (
-          <YouTubeIframe
-            src="https://www.youtube-nocookie.com/embed/IZAj3cRF99E?start=408"
-            title="Football world cup 1994 final Brazil versus Italy"
-          />
-        );
-      case 3:
-        return (
-          <YouTubeIframe
-            src="https://www.youtube-nocookie.com/embed/lc0UehYemQA?start=30"
-            title="Jurassic park 1993 trailer"
-          />
-        );
-      case 4:
-        return (
-          <YouTubeIframe
-            src="https://www.youtube-nocookie.com/embed/CrATmeFoJPE?start=1"
-            title="Super Mario Bros 3 trailer"
-          />
-        );
-      case 5:
-        return (
-          <YouTubeIframe
-            src="https://www.youtube-nocookie.com/embed/aPzS3QYb868?start=21"
-            title="The Simpsons intro"
-          />
-        );
-      case 6:
-        return (
-          <>
-            {creditsData && (
-              <Credits
-                name={creditsData.name}
-                github={creditsData.github}
-                linkedin={creditsData.linkedin}
-                experiences={creditsData.experiences}
-              />
-            )}
-          </>
-        );
-      default:
-        return <DefaultPicture className="test-picture" />;
+    if (channel === 0) {
+      return <DefaultPicture className="dead-picture" />;
+    } else if (personApiData && channel === 6) {
+      const { name, github, linkedin, experiences } = personApiData;
+      return (
+        <Credits
+          name={name}
+          github={github}
+          linkedin={linkedin}
+          experiences={experiences}
+        />
+      );
+    } else if (
+      personApiData &&
+      channel <= personApiData.favouriteVideos.length
+    ) {
+      const { src, title } = personApiData.favouriteVideos[channel - 1];
+      return <YouTubeIframe src={src} title={title} />;
+    } else {
+      return <DefaultPicture className="test-picture" />;
     }
   };
 

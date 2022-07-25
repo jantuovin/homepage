@@ -41,6 +41,10 @@ html {
   }
 }
 
+body {
+  background-color: seashell;
+}
+
 main {
   display: flex;
   align-items: center;

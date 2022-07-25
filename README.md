@@ -14,5 +14,4 @@
 ## TODOs
 
 - Refactor Go app
-- Add static picture to the frontend tv using CSS Houdini paint and Perlin noise
 - Add background objects to the frontend

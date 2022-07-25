@@ -5,7 +5,7 @@ interface YouTubeIframeProps {
 
 const YouTubeIframe: React.FC<YouTubeIframeProps> = ({ src, title }) => {
   return (
-    <div className="picture dead-picture">
+    <div className="picture static-noise-picture">
       <iframe
         src={`${src}&autoplay=1&mute=1`}
         title={`Youtube player - ${title}`}

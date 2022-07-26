@@ -11,6 +11,7 @@ func main() {
 	app := fiber.New()
 
 	app.Post("/api/person", controller.CreatePerson)
+	app.Put("/api/person/", controller.UpdatePerson)
 	app.Get("/api/person/:id", controller.GetPersonById)
 
 	log.Fatal(app.Listen("localhost:3000"))

@@ -3,6 +3,7 @@
       "dockercompose:up": "docker-compose up -d",
       "dockercompose:down": "docker-compose down",
       "dockercompose:ps": "docker-compose ps mysqlservice",
-      "database:populate": "curl -X POST http://localhost:3000/api/person -H \"Content-Type: application/json\" -d \"@person_data.json\""
+      "database:populate": "curl -X POST http://localhost:3000/api/person -H \"Content-Type: application/json\" -d \"@person_data.json\"",
+      "database:update": "curl -X PUT http://localhost:3000/api/person -H \"Content-Type: application/json\" -d \"@person_data.json\""
     }
   }

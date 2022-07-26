@@ -57,6 +57,12 @@ func CreatePerson(person *Person) *Person {
 	return person
 }
 
+func UpdatePerson(person *Person) *Person {
+	db := database.GetDB()
+	db.Session(&gorm.Session{FullSaveAssociations: true}).Updates(&person)
+	return person
+}
+
 func GetPerson(id int) *Person {
 	db := database.GetDB()
 	var person Person

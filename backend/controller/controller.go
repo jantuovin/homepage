@@ -17,6 +17,22 @@ func CreatePerson(c *fiber.Ctx) error {
 	if err := c.JSON(person); err != nil {
 		return c.Status(fiber.StatusInternalServerError).SendString("Internal server error")
 	}
+
+	c.Set("Content-Type", "application/json")
+	return c.JSON(person)
+}
+
+func UpdatePerson(c *fiber.Ctx) error {
+	person := new(model.Person)
+	if err := c.BodyParser(person); err != nil {
+		return c.Status(fiber.StatusBadRequest).SendString("Bad request")
+	}
+
+	model.UpdatePerson(person)
+	if err := c.JSON(person); err != nil {
+		return c.Status(fiber.StatusInternalServerError).SendString("Internal server error")
+	}
+
 	c.Set("Content-Type", "application/json")
 	return c.JSON(person)
 }

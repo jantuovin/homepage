@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -29,15 +31,9 @@ html {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1600px) {
   html {
     font-size: 16px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  html {
-    font-size: 20px;
   }
 }
 
@@ -61,15 +57,17 @@ main {
 .tv {
   display: flex;
   flex-direction: row;
+  margin: 0 4rem;
   border: 1px solid black;
   border-radius: 0.5rem;
   padding: 1rem;
   background-color: #80583f;
   gap: 1rem;
+  z-index: 3
 }
 
 .bezel {
-  width: 60vw;
+  width: 40rem;
   border: 1px solid black;
   border-radius: 0.25rem;
   padding: 1.5rem;
@@ -85,7 +83,8 @@ main {
   box-shadow: 0px 0px 1px 0.75rem #888;
 }
 
-.picture, .picture iframe {
+.picture,
+.picture iframe {
   width: 100%;
   height: 100%;
   border-radius: 3rem;
@@ -105,16 +104,14 @@ main {
 }
 
 .test-picture {
-  background: linear-gradient(
-    to right, 
-    #fff 0%, #fff 14.3%, 
-    #ffff01 14.3%, #ffff01 28.6%, 
-    #00fdfe 28.6%, #00fdfe 42.9%, 
-    #00ff01 42.9%, #00ff01 57.2%, 
-    #fe00f9 57.2%, #fe00f9 71.5%,
-    #fe0000 71.5%, #fe0000 85.8%,
-    #0000fe 85.8%
-  ) !important;
+  background: linear-gradient(to right,
+      #fff 0%, #fff 14.3%,
+      #ffff01 14.3%, #ffff01 28.6%,
+      #00fdfe 28.6%, #00fdfe 42.9%,
+      #00ff01 42.9%, #00ff01 57.2%,
+      #fe00f9 57.2%, #fe00f9 71.5%,
+      #fe0000 71.5%, #fe0000 85.8%,
+      #0000fe 85.8%) !important;
 }
 
 .credits {
@@ -171,7 +168,8 @@ main {
   gap: 1.5rem;
 }
 
-.credits dt, .credits dd {
+.credits dt,
+.credits dd {
   font-size: 0.725rem;
   text-align: right;
 }
@@ -245,9 +243,59 @@ main {
   background-color: #333;
 }
 
-.stand {
-  width: 90%;
-  height: 2rem;
-  border-radius: 0 0 0.25rem 0.25rem;
-  background-color: #333;
+.table-top {
+  width: 100%;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #ffc18c;
+  border: 3px solid black;
+  transform: rotateX(180deg);
+  transform-origin: top;
+}
+
+.table-top-up {
+  margin-top: 1.5rem;
+  z-index: 2;
+}
+
+.table-top-down {
+  margin-top: -2rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  z-index: 1;
+}
+
+.table-legs {
+  margin-top: -6rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 6rem;
+}
+
+.table-leg {
+  width: 2rem;
+  height: 20rem;
+  background-color: #696969;
+  border: 3px solid black;
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%;
+  transform: rotate(10deg);
+}
+
+.table-leg-back {
+  height: 16rem;
+}
+
+.table-leg-right {
+  transform: rotate(-10deg);
+}
+
+.table-leg-back-left {
+  margin-right: 15.5rem;
+}
+
+.table-leg-back-right {
+  margin-left: 15.5rem;
+  transform: rotate(-10deg);
 }

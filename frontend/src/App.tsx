@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import DefaultPicture from "./components/DefaultPicture";
 import Credits, { CreditsProps } from "./components/Credits";
-import YouTubeIframe from "./components/YoutubeIframe";
+import YouTubeIframe from "./components/YouTubeIframe";
 import useFetch from "./hooks/useFetch";
 
 interface PersonApiData extends CreditsProps {
@@ -44,7 +44,9 @@ export const App = () => {
   const getPicture = (channel: number) => {
     if (channel === 0) {
       return <DefaultPicture className="dead-picture" />;
-    } else if (personApiData && channel === 6) {
+    }
+
+    if (personApiData && channel === 6) {
       const { name, github, linkedin, experiences } = personApiData;
       return (
         <Credits
@@ -54,15 +56,14 @@ export const App = () => {
           experiences={experiences}
         />
       );
-    } else if (
-      personApiData &&
-      channel <= personApiData.favouriteVideos.length
-    ) {
+    }
+
+    if (personApiData && channel <= personApiData.favouriteVideos.length) {
       const { src, title } = personApiData.favouriteVideos[channel - 1];
       return <YouTubeIframe src={src} title={title} />;
-    } else {
-      return <DefaultPicture className="test-picture" />;
     }
+
+    return <DefaultPicture className="test-picture" />;
   };
 
   return (
@@ -98,7 +99,14 @@ export const App = () => {
           </div>
         </div>
 
-        <div className="stand"></div>
+        <div className="table-top table-top-up"></div>
+        <div className="table-top table-top-down"></div>
+        <div className="table-legs">
+          <div className="table-leg"></div>
+          <div className="table-leg table-leg-back table-leg-back-left"></div>
+          <div className="table-leg table-leg-back table-leg-right table-leg-back-right"></div>
+          <div className="table-leg table-leg-right"></div>
+        </div>
       </div>
     </main>
   );

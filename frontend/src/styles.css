@@ -248,7 +248,7 @@ main {
   height: 4rem;
   border-radius: 50%;
   background-color: #ffc18c;
-  border: 3px solid black;
+  border: 1px solid black;
   transform: rotateX(180deg);
   transform-origin: top;
 }
@@ -277,7 +277,7 @@ main {
   width: 2rem;
   height: 20rem;
   background-color: #696969;
-  border: 3px solid black;
+  border: 1px solid black;
   border-bottom-left-radius: 30%;
   border-bottom-right-radius: 30%;
   transform: rotate(10deg);

@@ -11,6 +11,7 @@
 
 html {
   font-size: 6px;
+  --lightness-factor: 1;
 }
 
 @media screen and (min-width: 700px) {
@@ -38,14 +39,14 @@ html {
 }
 
 body {
-  background-color: seashell;
+  background-color: oklch(calc(97.6% * var(--lightness-factor)) 0.014 57.59);
 }
 
 main {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100dvh;
 }
 
 .tv-container {
@@ -58,29 +59,29 @@ main {
   display: flex;
   flex-direction: row;
   margin: 0 4rem;
-  border: 1px solid black;
+  border: 1px solid oklch(0% 0 0);
   border-radius: 0.5rem;
   padding: 1rem;
-  background-color: #80583f;
+  background-color: oklch(calc(49.73% * var(--lightness-factor)) 0.065 52.7);
   gap: 1rem;
   z-index: 3
 }
 
 .bezel {
   width: 40rem;
-  border: 1px solid black;
+  border: 1px solid oklch(0% 0 0);
   border-radius: 0.25rem;
   padding: 1.5rem;
-  background-color: #A9A9A9;
+  background-color: oklch(calc(73.48% * var(--lightness-factor)) 0 0);
 }
 
 .monitor {
   width: 100%;
   aspect-ratio: 4/3;
-  border: 0.125rem solid black;
+  border: 0.125rem solid oklch(0% 0 0);
   border-radius: 3rem;
-  background: linear-gradient(#666, #333);
-  box-shadow: 0px 0px 1px 0.75rem #888;
+  background: linear-gradient(oklch(calc(51.03% * var(--lightness-factor)) 0 0), oklch(calc(32.11% * var(--lightness-factor)) 0 0));
+  box-shadow: 0px 0px 1px 0.75rem oklch(cal(62.68% * var(--lightness-factor)) 0 0);
 }
 
 .picture,
@@ -95,7 +96,7 @@ main {
 }
 
 .dead-picture {
-  background: linear-gradient(#666, #333);
+  background: linear-gradient(oklch(calc(51.03% * var(--lightness-factor)) 0 0), oklch(calc(32.11% * var(--lightness-factor)) 0 0));
 }
 
 .static-noise-picture {
@@ -185,12 +186,12 @@ main {
   align-items: center;
   justify-content: space-evenly;
   width: 25%;
-  border: 1px solid black;
+  border: 1px solid oklch(0% 0 0);
   border-radius: 0.5rem;
   padding: 0.5rem;
   padding-top: 2rem;
   gap: 0.1rem;
-  background-color: #836044;
+  background-color: oklch(calc(51.83% * var(--lightness-factor)) 0.061 59.53);
 }
 
 .channel-button {
@@ -199,9 +200,9 @@ main {
   align-items: center;
   width: 70%;
   aspect-ratio: 1/1;
-  border: 1px solid black;
+  border: 1px solid oklch(0% 0 0);
   border-radius: 10000px;
-  background-color: #333;
+  background-color: oklch(calc(32.11% * var(--lightness-factor)) 0 0);
   appearance: none;
   cursor: pointer;
   --rotation-angle: 0deg;
@@ -214,41 +215,41 @@ main {
   align-items: center;
   width: 90%;
   height: 15%;
-  border: 1px solid black;
+  border: 1px solid oklch(0% 0 0);
   border-radius: 0.25rem;
   padding-left: 0.1rem;
-  background-color: gray;
+  background-color: oklch(calc(59.99% * var(--lightness-factor)) 0 0);
 }
 
 .channel-button-dial-pointer {
   width: 20%;
   height: 40%;
   border-radius: 0.25rem;
-  background-color: black;
+  background-color: oklch(0% 0 0);
 }
 
 .decoration-small {
   width: 40%;
   aspect-ratio: 7/3;
-  border: 1px solid black;
+  border: 1px solid oklch(0% 0 0);
   border-radius: 0.25rem;
-  background-color: #333;
+  background-color: oklch(calc(32.11% * var(--lightness-factor)) 0 0);
 }
 
 .decoration-big {
   height: 40%;
   aspect-ratio: 3/4;
-  border: 1px solid black;
+  border: 1px solid oklch(0% 0 0);
   border-radius: 0.25rem;
-  background-color: #333;
+  background-color: oklch(calc(32.11% * var(--lightness-factor)) 0 0);
 }
 
 .table-top {
   width: 100%;
   height: 4rem;
   border-radius: 50%;
-  background-color: #ffc18c;
-  border: 1px solid black;
+  background-color: oklch(calc(85.54% * var(--lightness-factor)) 0.09878967520481909 61.44673961930269);
+  border: 1px solid oklch(0% 0 0);
   transform: rotateX(180deg);
   transform-origin: top;
 }
@@ -276,8 +277,9 @@ main {
 .table-leg {
   width: 2rem;
   height: 20rem;
-  background-color: #696969;
-  border: 1px solid black;
+  background-color: oklch(calc(52.08% * var(--lightness-factor)) 0 0);
+  border: 1px solid oklch(0% 0 0);
+  ;
   border-bottom-left-radius: 30%;
   border-bottom-right-radius: 30%;
   transform: rotate(10deg);
